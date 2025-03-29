@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: hsl(0 0% 98%);
+  --foreground: hsl(0 0% 4%);
+  --aura-rainbow-offset: -20%;
+  --aura-animation-duration: 12s;
+  --spacing: 0.25rem;
 }
 
 @theme inline {
@@ -13,10 +16,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
+  :root:not(.light) {
+    --background: hsl(0 0% 4%);
     --foreground: #ededed;
   }
+}
+
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
