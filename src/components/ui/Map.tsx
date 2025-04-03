@@ -144,10 +144,14 @@ export default function Map() {
                 if (!lightMapInstance.current) return;
                 
                 // Now it's safe to add images, sources, layers
-                lightMapInstance.current.zoomTo(13, {
-                    duration: 5000,
-                    easing: (t) => t * (2 - t)
-                });
+                setTimeout(() => {
+                    if (!lightMapInstance.current) return;
+                    
+                    lightMapInstance.current.zoomTo(13, {
+                        duration: 5000,
+                        easing: (t) => t * (2 - t)
+                    });
+                }, 1000);
                 
                 lightMapInstance.current.addImage('pulsing-dot', pulsingDot, {pixelRatio: 2});
 
@@ -180,10 +184,14 @@ export default function Map() {
             darkMapInstance.current.on('style.load', () => {
                 if (!darkMapInstance.current) return;
                 
-                darkMapInstance.current.zoomTo(13, {
-                    duration: 5000,
-                    easing: (t) => t * (2 - t)
-                });
+                setTimeout(() => {
+                    if (!darkMapInstance.current) return;
+                    
+                    darkMapInstance.current.zoomTo(13, {
+                        duration: 5000,
+                        easing: (t) => t * (2 - t)
+                    });
+                }, 1000);
 
                 darkMapInstance.current.addImage('pulsing-dot', pulsingDot, {pixelRatio: 2});
 
