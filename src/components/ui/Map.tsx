@@ -4,6 +4,7 @@ import syncMaps from '@mapbox/mapbox-gl-sync-move';
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import './Map.css';
 
 export default function Map() {
     const { theme } = useTheme();
@@ -33,6 +34,7 @@ export default function Map() {
             // Track animation state
             let isPaused = false;
             let pauseStartTime = 0;
+            let animationStartTime = performance.now(); // Track when animation started
             const pauseDuration = 3000; // 3 seconds in milliseconds
             const animationDuration = 2000; // 2 seconds for the animation
 
@@ -48,6 +50,10 @@ export default function Map() {
                     canvas.width = this.width;
                     canvas.height = this.height;
                     this.context = canvas.getContext('2d');
+                    
+                    // Reset animation to ensure it starts from the beginning
+                    animationStartTime = performance.now();
+                    isPaused = false;
                 },
 
                 // called once before every frame where the icon will be used
@@ -59,19 +65,21 @@ export default function Map() {
                     if (isPaused) {
                         // Check if the pause duration has elapsed
                         if (now - pauseStartTime >= pauseDuration) {
-                            // Resume animation
+                            // Resume animation - set new start time
                             isPaused = false;
+                            animationStartTime = now;
                             t = 0; // Start from beginning
                         } else {
                             // Still in pause, keep t at 1 (fully expanded state)
                             t = 1;
                         }
                     } else {
-                        // Calculate animation progress
-                        t = (now % animationDuration) / animationDuration;
+                        // Calculate animation progress based on time since animation started
+                        const elapsed = now - animationStartTime;
+                        t = Math.min(elapsed / animationDuration, 1);
                         
                         // Check if we just completed a cycle
-                        if (t >= 0.99) {
+                        if (t >= 1) {
                             isPaused = true;
                             pauseStartTime = now;
                             t = 1; // Ensure we're at the final state
