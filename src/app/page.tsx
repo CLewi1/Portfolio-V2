@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Map from "@/components/ui/Map";
+import Clock from "@/components/ui/Clock"
 
 export default function Home() {
     return (
@@ -38,8 +39,9 @@ export default function Home() {
                 </div>
             </header>
             <section className="h-full bg-background">
-              <div className="h-[300px] w-full rounded-lg">
+              <div className="group relative h-48 overflow-hidden">
                 <Map />
+                <Clock />
               </div>
               <p className="text-blue-500 text-xl font-bold">Hello World</p>
             </section>

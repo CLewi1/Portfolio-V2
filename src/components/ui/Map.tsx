@@ -147,7 +147,7 @@ export default function Map() {
                 setTimeout(() => {
                     if (!lightMapInstance.current) return;
                     
-                    lightMapInstance.current.zoomTo(13, {
+                    lightMapInstance.current.zoomTo(12.5, {
                         duration: 5000,
                         easing: (t) => t * (2 - t)
                     });
@@ -179,6 +179,9 @@ export default function Map() {
                         'icon-image': 'pulsing-dot'
                     }
                 });
+
+                // Force resize after a slight delay to ensure all styles are applied
+                setTimeout(resizeMaps, 100);
             });
 
             darkMapInstance.current.on('style.load', () => {
@@ -187,7 +190,7 @@ export default function Map() {
                 setTimeout(() => {
                     if (!darkMapInstance.current) return;
                     
-                    darkMapInstance.current.zoomTo(13, {
+                    darkMapInstance.current.zoomTo(12.5, {
                         duration: 5000,
                         easing: (t) => t * (2 - t)
                     });
@@ -219,19 +222,39 @@ export default function Map() {
                         'icon-image': 'pulsing-dot'
                     }
                 });
+
+                // Force resize after a slight delay
+                setTimeout(resizeMaps, 100);
             });
 
             syncMaps(lightMapInstance.current, darkMapInstance.current);
+
+            // Force resize after maps are loaded
+            const resizeMaps = () => {
+                if (lightMapInstance.current) {
+                    lightMapInstance.current.resize();
+                }
+                if (darkMapInstance.current) {
+                    darkMapInstance.current.resize();
+                }
+            };
+
+            // Clean up on unmount
+            return () => {
+                window.removeEventListener('resize', resizeMaps);
+                lightMapInstance.current?.remove();
+                darkMapInstance.current?.remove();
+            };
 
         } catch (error) {
             console.error('Error initializing map:', error);
         }
 
 
-    }, []);
+    }, [darkMapUrl, lightMapUrl]);
 
     return (
-        <div className="relative size-full">
+        <div className="absolute size-full">
             <div
                 id="lightMap"
                 className={`absolute inset-0 transition-opacity duration-500 ${theme === 'light' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
