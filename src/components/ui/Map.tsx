@@ -14,6 +14,27 @@ export default function Map() {
     const lightMapInstance = useRef<maplibregl.Map | null>(null);
     const darkMapInstance = useRef<maplibregl.Map | null>(null);
 
+    // Define resizeMaps function outside of the useEffect
+    const resizeMaps = () => {
+        if (lightMapInstance.current) {
+            lightMapInstance.current.resize();
+        }
+        if (darkMapInstance.current) {
+            darkMapInstance.current.resize();
+        }
+    };
+
+    // Call resize when theme changes
+    useEffect(() => {
+        if (lightMapInstance.current && darkMapInstance.current) {
+            // Initial resize
+            resizeMaps();
+            
+            const transitionDuration = 500;
+            setTimeout(resizeMaps, transitionDuration + 50);
+        }
+    }, [theme]);
+
     useEffect(() => {
         try {
             lightMapInstance.current = new maplibregl.Map({
@@ -228,16 +249,6 @@ export default function Map() {
             });
 
             syncMaps(lightMapInstance.current, darkMapInstance.current);
-
-            // Force resize after maps are loaded
-            const resizeMaps = () => {
-                if (lightMapInstance.current) {
-                    lightMapInstance.current.resize();
-                }
-                if (darkMapInstance.current) {
-                    darkMapInstance.current.resize();
-                }
-            };
 
             // Clean up on unmount
             return () => {
