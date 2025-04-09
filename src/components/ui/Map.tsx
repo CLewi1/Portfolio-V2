@@ -147,7 +147,7 @@ export default function Map() {
                 setTimeout(() => {
                     if (!lightMapInstance.current) return;
                     
-                    lightMapInstance.current.zoomTo(12.5, {
+                    lightMapInstance.current.zoomTo(9, {
                         duration: 5000,
                         easing: (t) => t * (2 - t)
                     });
@@ -190,7 +190,7 @@ export default function Map() {
                 setTimeout(() => {
                     if (!darkMapInstance.current) return;
                     
-                    darkMapInstance.current.zoomTo(12.5, {
+                    darkMapInstance.current.zoomTo(9, {
                         duration: 5000,
                         easing: (t) => t * (2 - t)
                     });
