@@ -6,6 +6,7 @@ import './Hero.css';
 export default function Hero() {
     const [isWaving, setIsWaving] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
+    const [ showAnimation, setShowAnimation ] = useState(false);
     
     const handleMouseEnter = () => {
         setIsWaving(true);
@@ -25,6 +26,12 @@ export default function Hero() {
 
     const handleCircleAnimationEnd = () => {
         setIsHovering(false);
+        if (!showAnimation) {
+            setShowAnimation(true);
+        } else {
+            setShowAnimation(false);
+        }
+
     };
 
     return (
@@ -38,6 +45,7 @@ export default function Hero() {
                     <div className="relative size-[70px] select-none hover:saturate-[70%]">
                         <div className="absolute inset-1">
                             <Image className="size-full rounded-full bg-muted-foreground object-cover object-[center_20%] ring-5 ring-muted-foreground/50 ring-offset-2 ring-offset-background" alt="Profile" src="/images/pfp.png" width={70} height={70}/>
+                            <Image className={`z-10 absolute top-[-0.5px] left-[4px] size-[50px] transition-opacity duration-300 ${showAnimation ? 'block' : 'hidden'}`}  alt="Profile Glasses" src="/images/glasses.png" width={70} height={70}/>
                         </div>
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                             <circle 
@@ -45,11 +53,10 @@ export default function Hero() {
                                 cy="50" 
                                 r="45" 
                                 fill="none" 
-                                stroke="#00c951" 
                                 strokeWidth="6"
                                 strokeLinecap='round'
                                 onAnimationEnd={handleCircleAnimationEnd}
-                                className={`profile-circle ${isHovering ? 'profile-circle-animate' : 'profile-circle-paused'}`}
+                                className={`stroke-emerald-500 dark:stroke-green-500 profile-circle ${isHovering ? 'profile-circle-animate' : 'profile-circle-paused'}`}
                             />
                         </svg>
                     </div>
@@ -74,27 +81,46 @@ export default function Hero() {
             </div>
             <div className="hidden sm:block">
                 <p>
-                    <span className="transition-opacity duration-700 opacity-100">I&apos;m a </span>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}>I&apos;m a </span>
                     <span className="relative inline-block">
                         <span className="relative z-10">software developer</span>
-                        <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100"> with </span>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}> with </span>
                     <span className="relative inline-block">
                         <span className="relative z-10">three years of experience</span>
-                        <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100">. I specialize in </span>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}>. I specialize in </span>
                     <span className="relative inline-block">
                         <span className="relative z-10">backend development,</span>
-                        <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100"> focused on building </span>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}> focused on building </span>
                     <span className="relative inline-block">
                         <span className="relative z-10"> secure applications</span>
-                        <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100"> with high standards for code quality and reliability.</span>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}> with high standards for </span>
+                    <span className="relative inline-block">
+                    <span className="relative z-10">code quality and reliability.</span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
+                    </span>
                 </p>
             </div>
         </>

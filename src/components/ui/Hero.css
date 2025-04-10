@@ -47,11 +47,24 @@
 }
 
 .profile-circle-animate {
-  animation: circleProgress 1.5s linear forwards;
+  animation: circleProgress 1s linear forwards;
 }
 
 .profile-circle-paused {
   stroke-dashoffset: 283;
   animation-play-state: paused;
   opacity: 0;
+}
+
+@keyframes highlightText {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.highlight-active {
+  animation: highlightText 0.5s ease-out forwards;
 }
