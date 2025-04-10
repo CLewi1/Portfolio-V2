@@ -5,6 +5,7 @@ import './Hero.css';
 
 export default function Hero() {
     const [isWaving, setIsWaving] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
     
     const handleMouseEnter = () => {
         setIsWaving(true);
@@ -14,14 +15,43 @@ export default function Hero() {
         setIsWaving(false);
     };
 
+    const handleProfileMouseEnter = () => {
+        setIsHovering(true);
+    };
+
+    const handleProfileMouseLeave = () => {
+        setIsHovering(false);
+    };
+
+    const handleCircleAnimationEnd = () => {
+        setIsHovering(false);
+    };
+
     return (
         <>
             <div className="mb-6 flex gap-5">
-                <div className="relative inline-block">
-                    <div className="pointer-events-none relative size-[70px] select-none hover:saturate-[70%]">
+                <div 
+                    className="relative inline-block" 
+                    onMouseEnter={handleProfileMouseEnter}
+                    onMouseLeave={handleProfileMouseLeave}
+                >
+                    <div className="relative size-[70px] select-none hover:saturate-[70%]">
                         <div className="absolute inset-1">
                             <Image className="size-full rounded-full bg-muted-foreground object-cover object-[center_20%] ring-5 ring-muted-foreground/50 ring-offset-2 ring-offset-background" alt="Profile" src="/images/pfp.png" width={70} height={70}/>
                         </div>
+                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                            <circle 
+                                cx="50" 
+                                cy="50" 
+                                r="45" 
+                                fill="none" 
+                                stroke="#00c951" 
+                                strokeWidth="6"
+                                strokeLinecap='round'
+                                onAnimationEnd={handleCircleAnimationEnd}
+                                className={`profile-circle ${isHovering ? 'profile-circle-animate' : 'profile-circle-paused'}`}
+                            />
+                        </svg>
                     </div>
                 </div>
                 <div className="space-y-1">
@@ -40,31 +70,31 @@ export default function Hero() {
                 </div>
             </div>
             <div>
-                <p className="mb-4 text-sm sm:hidden">I&apos;m a creative software developer with five years of experience. I specialize in UI design and crafting engaging user experiences with great attention to detail.</p>
+                <p className="mb-4 text-sm sm:hidden">I&apos;m a creative software developer with three years of experience. I specialize in backend development, focused on building secure applications with high standards for code quality and reliability.</p>
             </div>
             <div className="hidden sm:block">
                 <p>
                     <span className="transition-opacity duration-700 opacity-100">I&apos;m a </span>
                     <span className="relative inline-block">
-                        <span className="relative z-10">creative software developer</span>
+                        <span className="relative z-10">software developer</span>
                         <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
                     </span>
                     <span className="transition-opacity duration-700 opacity-100"> with </span>
                     <span className="relative inline-block">
-                        <span className="relative z-10">five years of experience</span>
+                        <span className="relative z-10">three years of experience</span>
                         <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
                     </span>
                     <span className="transition-opacity duration-700 opacity-100">. I specialize in </span>
                     <span className="relative inline-block">
-                        <span className="relative z-10">UI design</span>
+                        <span className="relative z-10">backend development,</span>
                         <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100"> and crafting </span>
+                    <span className="transition-opacity duration-700 opacity-100"> focused on building </span>
                     <span className="relative inline-block">
-                        <span className="relative z-10">engaging user experiences</span>
+                        <span className="relative z-10"> secure applications</span>
                         <span className="absolute inset-0 bg-yellow-200 dark:bg-yellow-800 w-0" style={{ transformOrigin: 'left center' }}></span>
                     </span>
-                    <span className="transition-opacity duration-700 opacity-100"> with great attention to detail.</span>
+                    <span className="transition-opacity duration-700 opacity-100"> with high standards for code quality and reliability.</span>
                 </p>
             </div>
         </>

@@ -18,3 +18,40 @@
   .group:hover .animate-wave {
     animation: wave 1.5s ease-in-out;
   }
+
+@keyframes circleProgress {
+  0% {
+    stroke-dashoffset: 283;
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  90% {
+    stroke-dashoffset: 0;
+    opacity: 1; /* Hold full visibility for a moment */
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0; /* Fade out at the end */
+  }
+}
+
+.profile-circle {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  opacity: 1;
+}
+
+.profile-circle-animate {
+  animation: circleProgress 1.5s linear forwards;
+}
+
+.profile-circle-paused {
+  stroke-dashoffset: 283;
+  animation-play-state: paused;
+  opacity: 0;
+}
