@@ -4,6 +4,7 @@ import Map from "@/components/ui/Map";
 import Clock from "@/components/ui/Clock"
 import Hero from "@/components/ui/Hero";
 import Skills from "@/components/ui/Skills";
+import Projects from "@/components/ui/Projects";
 
 export default function Home() {
     return (
@@ -48,8 +49,8 @@ export default function Home() {
                 </div>
                 <Hero />
                 <Skills />
-                <div id='showcase section???'></div>
-                <div id='projects'></div>
+                <Projects />
+                <div id='experience'></div>
                 <div id='something???????'></div>
             </section>
             <footer className="my-10 flex items-center justify-between">
