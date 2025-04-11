@@ -29,7 +29,7 @@ export default function Clock() {
                     left: clockRef.current.getBoundingClientRect().left + (clockRef.current.getBoundingClientRect().width / 2),
                     transform: 'translateX(-50%)'
                 }}>
-                    <p className="font-[system-ui] text-xs text-[#a3a3a3] font-semibold whitespace-nowrap rounded bg-background/80 px-2 py-1.5 border border-neutral-300 dark:border-neutral-700 relative after:content-[''] after:absolute after:left-[50%] after:-translate-x-1/2 after:top-full after:border-6 after:border-transparent after:border-t-neutral-300 dark:after:border-t-neutral-700 after:z-10">We&apos;re in the same timezone!</p>
+                    <p className="font-[system-ui] text-xs text-[#a3a3a3] font-semibold whitespace-nowrap rounded bg-background/80 px-2 py-1.5 border border-neutral-300 dark:border-neutral-800 relative after:content-[''] after:absolute after:left-[50%] after:-translate-x-1/2 after:top-full after:border-6 after:border-transparent after:border-t-neutral-300 dark:after:border-t-neutral-700 after:z-10">We&apos;re in the same timezone!</p>
                 </div>
             )}
             <p 

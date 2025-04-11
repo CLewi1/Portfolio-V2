@@ -30,7 +30,7 @@ interface Particle {
 
 const StarCanvas = ({
   className = "absolute top-0 left-0 size-full z-[-1]",
-  quantity = 50,
+  quantity = 20,
   staticity = 50,
   ease = 50,
   size = 0.4,
