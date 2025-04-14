@@ -30,8 +30,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">TypeScript</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">Statically typed JS</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -50,8 +55,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Next.js</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">React framework</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -70,8 +80,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Tailwind CSS</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">Utility-first CSS</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -89,8 +104,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Swift</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">iOS Development</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -109,8 +129,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Python</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">Versatile scripting</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                    </div>
                 </div>
             </button>
 
@@ -128,8 +153,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Flask</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">Python web framework</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -147,8 +177,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Spring Boot</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">Java framework</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
 
@@ -166,8 +201,13 @@ export default function Skills() {
                         <p className="hidden font-medium text-neutral-600 dark:text-neutral-400 text-xs leading-none sm:block">Java</p>
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex items-center justify-center">
-                    <p className="text-sm font-medium text-center px-2">OOP language</p>
+                <div className="hidden sm:flex absolute inset-0 w-full h-full backface-hidden rotate-y-180 flex-col items-center justify-center p-2">
+                    <p className="text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
+                    <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
+                        <div className="flex-1 border border-neutral-700"></div>
+                    </div>
                 </div>
             </button>
         </div>
