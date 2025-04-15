@@ -5,6 +5,7 @@ import Clock from "@/components/ui/Clock"
 import Hero from "@/components/ui/Hero";
 import Skills from "@/components/ui/Skills";
 import Projects from "@/components/ui/Projects";
+import Experience from "@/components/ui/Experience";
 
 export default function Home() {
     return (
@@ -50,8 +51,9 @@ export default function Home() {
                 <Hero />
                 <Skills />
                 <Projects />
-                <div id='experience'></div>
-                <div id='something???????'></div>
+                <Experience />
+
+                <div id='Cyber Lab thing(prob going under hero section'></div>
             </section>
             <footer className="my-10 flex items-center justify-between">
                 <ul className="flex gap-5 font-sm">

@@ -35,7 +35,7 @@ export default function Hero() {
     };
 
     return (
-        <>
+        <div>
             <div className="mb-6 flex gap-5">
                 <div 
                     className="relative inline-block" 
@@ -123,6 +123,6 @@ export default function Hero() {
                     </span>
                 </p>
             </div>
-        </>
+        </div>
     );
 }
