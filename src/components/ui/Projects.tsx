@@ -21,15 +21,13 @@ export default function Projects() {
                                         alt="Deck Link Image" 
                                         src="/images/DeckLink.png" 
                                         className="rounded-lg shadow-2xs dark:hidden" 
-                                        layout="fill" 
-                                        objectFit="cover"
+                                        layout="fill"
                                     />
                                     <Image 
                                         alt="Deck Link Image" 
                                         src="/images/DeckLink.png" 
                                         className="hidden rounded-lg border border-neutral-800 shadow-2xs dark:block" 
-                                        layout="fill" 
-                                        objectFit="cover"
+                                        layout="fill"
                                     />
                                 </div>
                                 <div className="mt-1 font-medium text-lg">Deck Link</div>
@@ -45,17 +43,15 @@ export default function Projects() {
                                 <div className="relative aspect-video w-full">
                                     <Image 
                                         alt="Personal Site"
-                                        className="relative aspect-video size-full rounded-lg shadow-2xs dark:hidden"
+                                        className="relative aspect-video size-full rounded-lg shadow-2xs dark:hidden fill cover"
                                         src="/images/DeckLink.png"
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill={true}
                                     />
                                     <Image 
                                         alt="Personal Site"
                                         className="hidden aspect-video size-full rounded-lg border border-neutral-800 shadow-2xs dark:block"
                                         src="/images/DeckLink.png"
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill={true}
                                     />
                                 </div>
                                 <div className="mt-1 font-medium text-lg">Personal Site</div>
