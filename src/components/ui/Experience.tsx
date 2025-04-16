@@ -40,10 +40,10 @@ export default function Experience() {
                     <div className="mt-2">
                         <div className="rounded-xl border border-neutral-300 dark:border-neutral-800 shadow relative">
                             <div>
-                                <ul className="ml-10 border-l">
+                                <ul className="ml-10 border-l border-neutral-400 dark:border-neutral-700">
                                     <li className="relative ml-10 py-4">
                                         <div className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-white">
-                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border">
+                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border border-neutral-400 dark:border-neutral-700">
                                                 <Image 
                                                     alt="City of Elmhurst"
                                                     className="aspect-square h-full w-full bg-background object-contain"
@@ -63,10 +63,10 @@ export default function Experience() {
                                 </ul>
                             </div>
                             <div>
-                                <ul className="ml-10 border-l">
+                                <ul className="ml-10 border-l border-neutral-400 dark:border-neutral-700">
                                     <li className="relative ml-10 py-4">
                                         <div className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-white">
-                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border">
+                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border border-neutral-400 dark:border-neutral-700">
                                                 <Image 
                                                     alt="York High School"
                                                     className="aspect-square h-full w-full bg-background object-contain"
@@ -85,7 +85,6 @@ export default function Experience() {
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -100,10 +99,10 @@ export default function Experience() {
                     <div className="mt-2">
                         <div className="rounded-xl border border-neutral-300 dark:border-neutral-800 shadow">
                             <div>
-                                <ul className="ml-10 border-l">
+                                <ul className="ml-10 border-l border-neutral-400 dark:border-neutral-700">
                                     <li className="relative ml-10 py-4">
                                         <div className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-white">
-                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border">
+                                            <span className="relative flex shrink-0 overflow-hidden rounded-full size-12 border border-neutral-400 dark:border-neutral-700">
                                                 <Image 
                                                     alt="University Of Wisconsin-Whitewater"
                                                     className="aspect-square h-full w-full bg-background object-contain"
