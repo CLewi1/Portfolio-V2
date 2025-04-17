@@ -6,10 +6,15 @@ import { useTheme } from '@/components/ThemeProvider';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './Map.css';
 
-export default function Map() {
+// Define props interface
+interface MapProps {
+    lightMapUrl: string;
+    darkMapUrl: string;
+}
+
+// Update component signature to accept props
+export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
     const { theme } = useTheme();
-    const lightMapUrl = process.env.NEXT_PUBLIC_LIGHT_MAP;
-    const darkMapUrl = process.env.NEXT_PUBLIC_DARK_MAP;
 
     const lightMapInstance = useRef<maplibregl.Map | null>(null);
     const darkMapInstance = useRef<maplibregl.Map | null>(null);
@@ -36,6 +41,11 @@ export default function Map() {
     }, [theme]);
 
     useEffect(() => {
+        // Make sure to handle potential undefined URLs if passed incorrectly
+        if (!lightMapUrl || !darkMapUrl) {
+            console.error("Map URLs are missing!");
+            return; // Prevent map initialization without URLs
+        }
         try {
             lightMapInstance.current = new maplibregl.Map({
                 container: "lightMap", 
