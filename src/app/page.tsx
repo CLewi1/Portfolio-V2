@@ -6,10 +6,6 @@ import Skills from "@/components/ui/Skills";
 import Projects from "@/components/ui/Projects";
 import Experience from "@/components/ui/Experience";
 
-
-
-
-
 export default function Home() {
     return (
         <main className="relative mx-auto mt-6 max-w-xl px-6">
@@ -26,8 +22,6 @@ export default function Home() {
                 <Skills />
                 <Projects />
                 <Experience />
-
-                <div id='Cyber Lab thing(prob going under hero section'></div>
             </section>
             <footer className="my-10 flex items-center justify-between">
                 <ul className="flex gap-5 font-sm">

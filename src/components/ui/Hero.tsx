@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import './Hero.css';
+import Link from 'next/link';
 
 export default function Hero() {
     const [isWaving, setIsWaving] = useState(false);
@@ -116,6 +117,20 @@ export default function Hero() {
                     <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}> with high standards for </span>
                     <span className="relative inline-block">
                     <span className="relative z-10">code quality and reliability.</span>
+                        <span 
+                            className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
+                            style={{ transformOrigin: 'left center' }}
+                        ></span>
+                    </span>
+                </p>
+            </div>
+            <div className="my-4">
+                <p>
+                    <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}>Exploring my new passion for cybersecurity in my </span>
+                    <span className="relative inline-block">
+                        <Link href="/cyberlab" className="font-mono bg-black/10 dark:bg-white/10 rounded px-2 py-0.5 hover:bg-black/20 dark:hover:bg-white/20 relative z-10">
+                            <span className="typing-animation">Cyberlab</span>
+                        </Link>
                         <span 
                             className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 
                             style={{ transformOrigin: 'left center' }}

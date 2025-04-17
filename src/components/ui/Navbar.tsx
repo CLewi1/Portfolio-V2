@@ -20,6 +20,19 @@ export default function Navbar() {
             <div className="flex items-center">
                 <div className="relative mx-auto flex w-fit flex-col items-center rounded-md">
                     <div className="relative flex w-full justify-center overflow-hidden">
+                        <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/cyberlab">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                fill='none'
+                                className="size-7 flex-shrink-0"
+                            >
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="m8 9 3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+                            </svg>
+                            <span className="ml-1 max-w-xs sm:max-w-0 overflow-hidden whitespace-nowrap opacity-100 sm:opacity-0 transition-all duration-400 ease-in-out group-hover:ml-1 sm:group-hover:max-w-xs sm:group-hover:opacity-100">Lab</span>
+                        </a>
                         <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/projects">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +44,7 @@ export default function Navbar() {
                             </svg>
                             <span className="ml-1 max-w-xs sm:max-w-0 overflow-hidden whitespace-nowrap opacity-100 sm:opacity-0 transition-all duration-400 ease-in-out group-hover:ml-1 sm:group-hover:max-w-xs sm:group-hover:opacity-100">Projects</span>
                         </a>
-                        <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/3">
+                        <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 384 512"
@@ -48,5 +61,5 @@ export default function Navbar() {
             </div>
         </nav>
     </div>
-    )
-}
+    );
+};
