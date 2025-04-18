@@ -1,8 +1,9 @@
 'use client';
-import Image from 'next/image';
 import { useState } from 'react';
-import './Hero.css';
 import Link from 'next/link';
+import Image from 'next/image';
+import { TypeAnimation } from 'react-type-animation';
+import './Hero.css';
 
 export default function Hero() {
     const [isWaving, setIsWaving] = useState(false);
@@ -128,8 +129,17 @@ export default function Hero() {
                 <p>
                     <span className={`transition-opacity duration-700 ${showAnimation ? 'opacity-30' : 'opacity-100'}`}>Exploring my new passion for cybersecurity in my </span>
                     <span className="relative inline-block">
-                        <Link href="/cyberlab" className="font-mono bg-black/10 dark:bg-white/10 rounded px-2 py-0.5 hover:bg-black/20 dark:hover:bg-white/20 relative z-10">
-                            <span className="typing-animation">Cyberlab</span>
+                        <Link href="/cyberlab" className="font-mono bg-black/10 dark:bg-white/10 rounded px-2 py-0.5 hover:bg-black/20 dark:hover:bg-white/20 relative z-10 text-sm sm:text-base">
+                            <TypeAnimation
+                                sequence={[
+                                    'Cyberlab'
+                                ]}
+                                wrapper="span"
+                                repeat={1}
+                                speed={1}
+                                cursor={false}
+                                className= "type"
+                            />
                         </Link>
                         <span 
                             className={`absolute inset-0 bg-yellow-200 dark:bg-yellow-800 ${showAnimation ? 'highlight-active' : 'w-0'}`} 

@@ -7,6 +7,14 @@ import Projects from "@/components/ui/Projects";
 import Experience from "@/components/ui/Experience";
 
 export default function Home() {
+    const lightMapUrl = process.env.LIGHT_MAP;
+    const darkMapUrl = process.env.DARK_MAP;
+
+    if (!lightMapUrl || !darkMapUrl) {
+        // Handle error: environment variables not loaded on the server
+        return <div>Error: Map configuration is missing.</div>;
+    }
+
     return (
         <main className="relative mx-auto mt-6 max-w-xl px-6">
             <header className="-ml-[8px] mb-10 tracking-tight sm:mb-16">
@@ -14,7 +22,7 @@ export default function Home() {
             </header>
             <section className="h-full bg-background">
                 <div className="group relative h-48 overflow-hidden">
-                    <Map />
+                    <Map lightMapUrl={lightMapUrl} darkMapUrl={darkMapUrl} />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-[linear-gradient(transparent,#9d9da200_60%,#fafafa)] dark:bg-[linear-gradient(transparent,#18181b73_60%,#0a0a0a)]"></div>
                     <Clock />
                 </div>
