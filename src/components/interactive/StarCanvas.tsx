@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from "react";
-// Replace next-themes with your custom theme provider
-import { useTheme } from "@/components/ThemeProvider"; // Adjust this path to your custom theme provider
+import { useTheme } from "@/components/ThemeProvider"; 
 
 interface ParticleProps {
   className?: string;
@@ -46,12 +45,11 @@ const StarCanvas = ({
   const boundsRef = useRef({ w: 0, h: 0 });
   const pixelRatioRef = useRef(1);
   const animationFrameId = useRef<number | null>(null);
-  const { theme } = useTheme(); // Adjust this to match your theme hook's API
+  const { theme } = useTheme();
 
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Set pixel ratio only on client-side
     pixelRatioRef.current = window.devicePixelRatio || 1;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -74,7 +72,7 @@ const StarCanvas = ({
         }
       };
     }
-  }, [theme, quantity, size]); // Add theme as dependency
+  }, [theme, quantity, size]);
 
   useEffect(() => {
     trackMousePosition();
@@ -136,9 +134,8 @@ const StarCanvas = ({
     if (contextRef.current) {
       const { x, y, translateX, translateY, size, alpha } = particle;
 
-      // Recalculate theme color on each draw using current theme
       const themeColorRGB = (() => {
-        let hex = theme === "light" ? "#000000" : "#ffffff"; // Use your theme value
+        let hex = theme === "light" ? "#000000" : "#ffffff";
         hex = hex.replace("#", "");
         if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("");
         const intVal = parseInt(hex, 16);

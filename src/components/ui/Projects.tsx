@@ -37,7 +37,7 @@ export default function Projects() {
                     </a>
                 </div>
                 <div className="col-span-2 size-full cursor-pointer overflow-hidden rounded-xl border border-neutral-200 bg-background p-4 shadow-2xs transition-all duration-300 hover:bg-neutral-800/[0.03] sm:col-span-1 dark:hover:bg-neutral-800/30 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_40px_-20px_#ffffff1f_inset]">
-                    <a href="https://clewi.dev" target="_blank" rel="noopener noreferrer">
+                    <a href="https://clewi.vercel.app" target="_blank" rel="noopener noreferrer">
                         <div className="flex flex-row items-center gap-2">
                             <div className="flex w-full flex-col">
                                 <div className="relative aspect-video w-full">
