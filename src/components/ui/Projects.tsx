@@ -50,7 +50,7 @@ export default function Projects() {
                                     <Image 
                                         alt="Personal Site"
                                         className="hidden aspect-video size-full rounded-lg border border-neutral-800 shadow-2xs dark:block"
-                                        src="/images/DeckLink.png"
+                                        src="/images/Portfolio.png"
                                         fill={true}
                                     />
                                 </div>

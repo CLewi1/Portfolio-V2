@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Colin Lewandowski Portfolio
+
+A modern, interactive developer portfolio built with Next.js, TypeScript, and TailwindCSS.
+
+![Portfolio Screenshot](/public/images/Portfolio.png)
+
+## Features
+
+- 🌙 Dark/Light theme support
+- 📱 Responsive design for all device sizes
+- ⚡ Fast loading and navigation with Next.js App Router
+- 🎨 Interactive UI elements with React
+- 📊 Project showcase with filterable categories
+- 📝 Clean, minimal design focused on content
+
+## Technologies
+
+- [Next.js](https://nextjs.org/) - React framework for production
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [React](https://reactjs.org/) - UI library
+- [Geist Font](https://vercel.com/font) - Typography by Vercel
+- [Vercel](https://vercel.com/) - Deployment platform
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 16.8+ (recommended: 18+ LTS)
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/CLewi1/portfolio-v2.git
+cd portfolio-v2
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) to view the site
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/               # App router and page components
+├── components/        # UI components 
+│   ├── interactive/   # Interactive UI elements
+│   └── ui/            # Static UI components
+└── types/             # TypeScript type definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site is deployed on Vercel. Changes to the main branch are automatically deployed.
 
-## Deploy on Vercel
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://your-portfolio-url.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE)
+
+## Contact
+
+- [GitHub](https://github.com/CLewi1)
+- [LinkedIn](https://linkedin.com/in/yourprofile)
+- [Email](mailto:colin.s.lewandowski@icloud.com)
