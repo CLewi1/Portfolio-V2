@@ -55,7 +55,7 @@ export default function Skills() {
                     <p className="text-xs sm:text-sm font-medium text-center px-2 mb-2">Proficiency:</p>
                     <div className="w-full flex border border-neutral-700 rounded overflow-hidden h-[25%]">
                         <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
-                        <div className="flex-1 border border-neutral-700"></div>
+                        <div className="flex-1 border border-neutral-700 bg-blue-500 animate-pulse"></div>
                         <div className="flex-1 border border-neutral-700"></div>
                     </div>
                 </div>

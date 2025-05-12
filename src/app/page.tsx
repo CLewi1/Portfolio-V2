@@ -11,7 +11,6 @@ export default function Home() {
     const darkMapUrl = process.env.DARK_MAP;
 
     if (!lightMapUrl || !darkMapUrl) {
-        // Handle error: environment variables not loaded on the server
         return <div>Error: Map configuration is missing.</div>;
     }
 
@@ -52,8 +51,8 @@ export default function Home() {
                     </li>
                 </ul>
                 <p className="text-muted-foreground">Last updated:&nbsp;
-                    <span className="hidden sm:inline">April 14, 2025</span>
-                    <span className="sm:hidden">04/14/2025</span>
+                    <span className="hidden sm:inline">May 12, 2025</span>
+                    <span className="sm:hidden">05/12/2025</span>
                 </p>
             </footer>
         </main>

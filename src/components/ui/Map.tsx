@@ -6,20 +6,17 @@ import { useTheme } from '@/components/ThemeProvider';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './Map.css';
 
-// Define props interface
 interface MapProps {
     lightMapUrl: string;
     darkMapUrl: string;
 }
 
-// Update component signature to accept props
 export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
     const { theme } = useTheme();
 
     const lightMapInstance = useRef<maplibregl.Map | null>(null);
     const darkMapInstance = useRef<maplibregl.Map | null>(null);
 
-    // Define resizeMaps function outside of the useEffect
     const resizeMaps = () => {
         if (lightMapInstance.current) {
             lightMapInstance.current.resize();
@@ -29,10 +26,8 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
         }
     };
 
-    // Call resize when theme changes
     useEffect(() => {
         if (lightMapInstance.current && darkMapInstance.current) {
-            // Initial resize
             resizeMaps();
             
             const transitionDuration = 500;
@@ -41,10 +36,9 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
     }, [theme]);
 
     useEffect(() => {
-        // Make sure to handle potential undefined URLs if passed incorrectly
         if (!lightMapUrl || !darkMapUrl) {
             console.error("Map URLs are missing!");
-            return; // Prevent map initialization without URLs
+            return; 
         }
         try {
             lightMapInstance.current = new maplibregl.Map({
@@ -62,12 +56,11 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
 
             const size = 50;
 
-            // Track animation state
             let isPaused = false;
             let pauseStartTime = 0;
-            let animationStartTime = performance.now(); // Track when animation started
-            const pauseDuration = 3000; // 3 seconds in milliseconds
-            const animationDuration = 2000; // 2 seconds for the animation
+            let animationStartTime = performance.now(); 
+            const pauseDuration = 3000; 
+            const animationDuration = 2000;
 
             const pulsingDot = {
                 width: size,
@@ -75,45 +68,36 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                 data: new Uint8ClampedArray(size * size * 4),
                 context: null as CanvasRenderingContext2D | null,
 
-                // get rendering context for the map canvas when layer is added to the map
                 onAdd() {
                     const canvas = document.createElement('canvas');
                     canvas.width = this.width;
                     canvas.height = this.height;
                     this.context = canvas.getContext('2d');
                     
-                    // Reset animation to ensure it starts from the beginning
                     animationStartTime = performance.now();
                     isPaused = false;
                 },
 
-                // called once before every frame where the icon will be used
                 render() {
                     const now = performance.now();
                     let t = 0;
                     
-                    // Check if we're in a pause state
                     if (isPaused) {
-                        // Check if the pause duration has elapsed
                         if (now - pauseStartTime >= pauseDuration) {
-                            // Resume animation - set new start time
                             isPaused = false;
                             animationStartTime = now;
-                            t = 0; // Start from beginning
+                            t = 0; 
                         } else {
-                            // Still in pause, keep t at 1 (fully expanded state)
                             t = 1;
                         }
                     } else {
-                        // Calculate animation progress based on time since animation started
                         const elapsed = now - animationStartTime;
                         t = Math.min(elapsed / animationDuration, 1);
                         
-                        // Check if we just completed a cycle
                         if (t >= 1) {
                             isPaused = true;
                             pauseStartTime = now;
-                            t = 1; // Ensure we're at the final state
+                            t = 1; 
                         }
                     }
 
@@ -123,7 +107,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
 
                     if (!context) return false;
 
-                    // draw outer circle
                     context.clearRect(0, 0, this.width, this.height);
                     context.beginPath();
                     context.arc(
@@ -136,7 +119,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                     context.fillStyle = `rgba(135, 206, 235,${1 - t})`;
                     context.fill();
 
-                    // draw inner circle
                     context.beginPath();
                     context.arc(
                         this.width / 2,
@@ -149,7 +131,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
 
                     context.fill();
 
-                    // update this image's data with data from the canvas
                     this.data = new Uint8ClampedArray(context.getImageData(
                         0,
                         0,
@@ -157,7 +138,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                         this.height
                     ).data);
 
-                    // continuously repaint the map, resulting in the smooth animation of the dot
                     if (lightMapInstance.current) {
                         lightMapInstance.current.triggerRepaint();
                     }
@@ -165,16 +145,13 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                         darkMapInstance.current.triggerRepaint();
                     }
 
-                    // return `true` to let the map know that the image was updated
                     return true;
                 }
             };
 
-            // Only perform operations after the style is fully loaded
             lightMapInstance.current.on('style.load', () => {
                 if (!lightMapInstance.current) return;
                 
-                // Now it's safe to add images, sources, layers
                 setTimeout(() => {
                     if (!lightMapInstance.current) return;
                     
@@ -211,7 +188,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                     }
                 });
 
-                // Force resize after a slight delay to ensure all styles are applied
                 setTimeout(resizeMaps, 100);
             });
 
@@ -254,13 +230,11 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                     }
                 });
 
-                // Force resize after a slight delay
                 setTimeout(resizeMaps, 100);
             });
 
             syncMaps(lightMapInstance.current, darkMapInstance.current);
 
-            // Clean up on unmount
             return () => {
                 window.removeEventListener('resize', resizeMaps);
                 lightMapInstance.current?.remove();
