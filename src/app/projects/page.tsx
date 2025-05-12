@@ -21,19 +21,19 @@ interface Project {
 export default function ProjectsPage() {
   const projects: Project[] = [
     {
-      title: "Deck Link",
-      description: "A compilation of numerous multiplayer card games built with React, Socket.IO, and Express. Features include real-time gameplay, custom game rooms, and multiple game variations.",
-      image: "/images/DeckLink.png",
-      githubUrl: "https://github.com/CLewi1/CS460-Project",
+      title: "NFL Play-By-Play",
+      description: "A C# Blazor Web Application developed for a Software Engineering capstone project. Made with API integrations for ESPN and OpenAI to transform NFL real-time play-by-play data into interactive audio narration.",
+      image: "/images/NFLPlayByPlay.png",
+      githubUrl: "https://github.com/Brogs360/NFL-Play-by-Play",
       liveUrl: undefined,
-      tags: ["Python", "Websockets", "Flask"],
+      tags: ["C#", "Blazor", "OpenAI", "API"],
       featured: true
     },
     {
       title: "Personal Site",
       description: "My current interactive developer portfolio built with Next.js, TailwindCSS, and TypeScript. Features interactive elements, dark mode, and responsive design.",
       image: "/images/Portfolio.png", 
-      githubUrl: "",
+      githubUrl: "https://github.com/CLewi1/Portfolio-V2",
       liveUrl: "https://clewi.vercel.app/",
       tags: ["Next.js", "TypeScript", "TailwindCSS"],
       featured: true
@@ -48,15 +48,6 @@ export default function ProjectsPage() {
       featured: false
     },
     {
-      title: "NFL-Play-By-Play",
-      description: "Blazor Web App capstone that uses ESPN and OpenAI APIs to narrate NFL play-by-play data.",
-      image: "/images/NFLPlayByPlay.png",
-      githubUrl: "https://github.com/Brogs360/NFL-Play-by-Play",
-      liveUrl: undefined,
-      tags: ["C#", "Blazor", "OpenAI", "API"],
-      featured: false
-    },
-    {
       title: "SongScope",
       description: "Java Swing app for song discovery using Spotify/YouTube metrics with MySQL database.",
       image: "/images/SongScope.png", 
@@ -64,7 +55,16 @@ export default function ProjectsPage() {
       liveUrl: undefined,
       tags: ["Java", "Swing", "MySQL"],
       featured: false
-    }
+    },
+    {
+      title: "Deck Link (WIP)",
+      description: "A compilation of numerous multiplayer card games built with React, Socket.IO, and Express. Features include real-time gameplay, custom game rooms, and multiple game variations.",
+      image: "/images/WIP.png",
+      githubUrl: "https://github.com/CLewi1/CS460-Project",
+      liveUrl: undefined,
+      tags: ["Python", "Flask", "Websockets"],
+      featured: false
+    },
   ];
 
 
@@ -263,8 +263,8 @@ export default function ProjectsPage() {
           </li>
         </ul>
         <p className="text-muted-foreground">Last updated:&nbsp;
-          <span className="hidden sm:inline">April 15, 2025</span>
-          <span className="sm:hidden">04/15/2025</span>
+          <span className="hidden sm:inline">May 12, 2025</span>
+          <span className="sm:hidden">05/12/2025</span>
         </p>
       </footer>
     </main>

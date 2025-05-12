@@ -13,27 +13,27 @@ export default function Projects() {
             {/* Project Display */}
             <div className="my-3 grid grid-cols-2 gap-4">
                 <div className="col-span-2 size-full cursor-pointer overflow-hidden rounded-xl border border-neutral-200 bg-background p-4 shadow-2xs transition-all duration-300 hover:bg-neutral-800/[0.03] sm:col-span-1 dark:hover:bg-neutral-800/30 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_40px_-20px_#ffffff1f_inset]">
-                    <a href="https://github.com/CLewi1/CS460-Project" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/Brogs360/NFL-Play-by-Play" target="_blank" rel="noopener noreferrer">
                         <div className="flex flex-row items-center gap-2">
                             <div className="flex w-full flex-col">
                                 <div className="relative aspect-video w-full"> 
                                     <Image 
                                         alt="Deck Link Image" 
-                                        src="/images/DeckLink.png" 
+                                        src="/images/NFLPlayByPlay.png" 
                                         className="rounded-lg shadow-2xs dark:hidden" 
                                         layout="fill"
                                     />
                                     <Image 
                                         alt="Deck Link Image" 
-                                        src="/images/DeckLink.png" 
+                                        src="/images/NFLPlayByPlay.png" 
                                         className="hidden rounded-lg border border-neutral-800 shadow-2xs dark:block" 
                                         layout="fill"
                                     />
                                 </div>
-                                <div className="mt-1 font-medium text-lg">Deck Link</div>
+                                <div className="mt-1 font-medium text-lg">NFL Play-By-Play</div>
                             </div>
                         </div>
-                        <div className="mt-2 line-clamp-4 text-sm">A compilation of numerous multiplayer card games</div>
+                        <div className="mt-2 line-clamp-4 text-sm">Interactive NFL game narration using ESPN and OpenAI APIs.</div>
                     </a>
                 </div>
                 <div className="col-span-2 size-full cursor-pointer overflow-hidden rounded-xl border border-neutral-200 bg-background p-4 shadow-2xs transition-all duration-300 hover:bg-neutral-800/[0.03] sm:col-span-1 dark:hover:bg-neutral-800/30 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_40px_-20px_#ffffff1f_inset]">
@@ -44,7 +44,7 @@ export default function Projects() {
                                     <Image 
                                         alt="Personal Site"
                                         className="relative aspect-video size-full rounded-lg shadow-2xs dark:hidden fill cover"
-                                        src="/images/DeckLink.png"
+                                        src="/images/Portfolio.png"
                                         fill={true}
                                     />
                                     <Image 
