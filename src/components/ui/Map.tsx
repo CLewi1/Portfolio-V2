@@ -142,15 +142,18 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
 
             lightMapInstance.current.on('style.load', () => {
                 if (!lightMapInstance.current) return;
-                
-                setTimeout(() => {
+
+                // Start the animation once the map is fully idle (tiles/styles loaded)
+                lightMapInstance.current.once('idle', () => {
                     if (!lightMapInstance.current) return;
-                    
-                    lightMapInstance.current.zoomTo(9, {
+                    lightMapInstance.current.flyTo({
+                        center: [-87.939621, 41.903469],
+                        zoom: 9,
                         duration: 5000,
-                        easing: (t) => t * (2 - t)
+                        essential: true,
+                        easing: (t: number) => t * (2 - t)
                     });
-                }, 1000);
+                });
                 
                 lightMapInstance.current.addImage('pulsing-dot', pulsingDot, {pixelRatio: 2});
 
@@ -184,15 +187,18 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
 
             darkMapInstance.current.on('style.load', () => {
                 if (!darkMapInstance.current) return;
-                
-                setTimeout(() => {
-                    if (!darkMapInstance.current) return;
 
-                    darkMapInstance.current.zoomTo(9, {
+                // Start the animation once the map is fully idle (tiles/styles loaded)
+                darkMapInstance.current.once('idle', () => {
+                    if (!darkMapInstance.current) return;
+                    darkMapInstance.current.flyTo({
+                        center: [-87.939621, 41.903469],
+                        zoom: 9,
                         duration: 5000,
-                        easing: (t) => t * (2 - t)
+                        essential: true,
+                        easing: (t: number) => t * (2 - t)
                     });
-                }, 1000);
+                });
 
                 darkMapInstance.current.addImage('pulsing-dot', pulsingDot, {pixelRatio: 2});
 
