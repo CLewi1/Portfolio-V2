@@ -27,15 +27,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
     };
 
     useEffect(() => {
-        if (lightMapInstance.current && darkMapInstance.current) {
-            resizeMaps();
-            
-            const transitionDuration = 500;
-            setTimeout(resizeMaps, transitionDuration + 50);
-        }
-    }, [theme]);
-
-    useEffect(() => {
         if (!lightMapUrl || !darkMapUrl) {
             console.error("Map URLs are missing!");
             return; 
@@ -196,7 +187,7 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                 
                 setTimeout(() => {
                     if (!darkMapInstance.current) return;
-                    
+
                     darkMapInstance.current.zoomTo(9, {
                         duration: 5000,
                         easing: (t) => t * (2 - t)
