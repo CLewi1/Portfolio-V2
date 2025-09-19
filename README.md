@@ -73,5 +73,5 @@ The site is deployed on Vercel. Changes to the main branch are automatically dep
 ## Contact
 
 - [GitHub](https://github.com/CLewi1)
-- [LinkedIn](https://linkedin.com/in/yourprofile)
+- [LinkedIn](https://linkedin.com/in/clewi1)
 - [Email](mailto:colin.s.lewandowski@icloud.com)

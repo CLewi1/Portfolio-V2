@@ -12,6 +12,7 @@ interface ParticleProps {
   refresh?: boolean;
   vx?: number;
   vy?: number;
+  maxSpeed?: number;
 }
 
 interface Particle {
@@ -29,13 +30,14 @@ interface Particle {
 
 const StarCanvas = ({
   className = "absolute top-0 left-0 size-full z-[-1]",
-  quantity = 20,
+  quantity = 30,
   staticity = 50,
   ease = 50,
   size = 0.4,
   refresh = false,
   vx = 0,
   vy = 0,
+  maxSpeed = 2,
 }: ParticleProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -171,6 +173,15 @@ const StarCanvas = ({
     return scaled > 0 ? scaled : 0;
   };
 
+  const clampSpeed = (dx: number, dy: number) => {
+    const speed = Math.sqrt(dx * dx + dy * dy);
+    if (speed > maxSpeed) {
+      const scale = maxSpeed / speed;
+      return { dx: dx * scale, dy: dy * scale };
+    }
+    return { dx, dy };
+  };
+
   const animateParticles = () => {
     clearCanvas();
     particlesRef.current.forEach((particle, index) => {
@@ -191,8 +202,10 @@ const StarCanvas = ({
         particle.alpha = particle.targetAlpha * alphaFactor;
       }
 
-      particle.x += particle.dx + vx;
-      particle.y += particle.dy + vy;
+      // Apply speed clamping
+      const clampedSpeed = clampSpeed(particle.dx + vx, particle.dy + vy);
+      particle.x += clampedSpeed.dx;
+      particle.y += clampedSpeed.dy;
       particle.translateX += (mouseRef.current.x / (staticity / particle.magnetism) - particle.translateX) / ease;
       particle.translateY += (mouseRef.current.y / (staticity / particle.magnetism) - particle.translateY) / ease;
 
