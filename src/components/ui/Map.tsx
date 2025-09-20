@@ -143,7 +143,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
             lightMapInstance.current.on('style.load', () => {
                 if (!lightMapInstance.current) return;
 
-                // Start the animation once the map is fully idle (tiles/styles loaded)
                 lightMapInstance.current.once('idle', () => {
                     if (!lightMapInstance.current) return;
                     lightMapInstance.current.flyTo({
@@ -188,7 +187,6 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
             darkMapInstance.current.on('style.load', () => {
                 if (!darkMapInstance.current) return;
 
-                // Start the animation once the map is fully idle (tiles/styles loaded)
                 darkMapInstance.current.once('idle', () => {
                     if (!darkMapInstance.current) return;
                     darkMapInstance.current.flyTo({
