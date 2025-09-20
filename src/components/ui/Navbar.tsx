@@ -20,7 +20,7 @@ export default function Navbar() {
             <div className="flex items-center">
                 <div className="relative mx-auto flex w-fit flex-col items-center rounded-md">
                     <div className="relative flex w-full justify-center overflow-hidden">
-                        <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/projects">
+                        <Link className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/projects">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -30,7 +30,7 @@ export default function Navbar() {
                                 <path xmlns="http://www.w3.org/2000/svg" d="M448 96H272L226.746 50.746C214.742 38.742 198.465 32 181.49 32H64C28.654 32 0 60.654 0 96V416C0 451.346 28.654 480 64 480H448C483.346 480 512 451.346 512 416V160C512 124.654 483.346 96 448 96ZM480 416C480 433.645 465.645 448 448 448H64C46.355 448 32 433.645 32 416V96C32 78.355 46.355 64 64 64H181.49C190.039 64 198.074 67.328 204.117 73.375L249.373 118.627L258.746 128H448C465.645 128 480 142.355 480 160V416Z"/>
                             </svg>
                             <span className="ml-1 max-w-xs sm:max-w-0 overflow-hidden whitespace-nowrap opacity-100 sm:opacity-0 transition-all duration-400 ease-in-out group-hover:ml-1 sm:group-hover:max-w-xs sm:group-hover:opacity-100">Projects</span>
-                        </a>
+                        </Link>
                         <a className="group flex h-8 items-center rounded-md px-2 py-0.5 text-center text-md text-muted-foreground hover:text-primary/80" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
