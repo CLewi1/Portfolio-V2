@@ -27,6 +27,35 @@ export default function Archive() {
             </header>
 
             <section>
+
+                <table className="w-full table-auto">
+                    <thead>
+                        <tr>
+                            <th className="text-left pr-4 font-normal text-muted-foreground">Year</th>
+                            <th className="text-left pr-4 font-normal text-muted-foreground">Project</th>
+                            <th className="text-left pr-4 font-normal text-muted-foreground">Built With</th>
+                            <th className="text-left pr-4 font-normal text-muted-foreground">Links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {projects.map((project, index) => (
+                            <tr key={index} className="border-t border-neutral-200 dark:border-neutral-800">
+                                <td className="py-2 pr-4 align-top">{project.year}</td>
+                                <td className="py-2 pr-4 align-top">
+                                    {project.title}
+                                </td>
+                                <td className="py-2 pr-4 align-top">
+                                    {project.builtWith.join(", ")}
+                                </td>
+                                <td className="py-2 pr-4 align-top">
+                                    <a className="text-primary hover:underline" href={project.link} target="_blank" rel="noopener noreferrer">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
                 
 
 
