@@ -18,14 +18,14 @@ export default function Projects() {
                             <div className="flex w-full flex-col">
                                 <div className="relative aspect-video w-full"> 
                                     <Image 
-                                        alt="Deck Link Image" 
-                                        src="/images/NFLPlayByPlay.png" 
+                                        alt="NFL Play-By-Play" 
+                                        src="/images/NFLPlayByPlay-light.png" 
                                         className="rounded-lg shadow-2xs dark:hidden" 
                                         layout="fill"
                                     />
                                     <Image 
-                                        alt="Deck Link Image" 
-                                        src="/images/NFLPlayByPlay.png" 
+                                        alt="NFL Play-By-Play" 
+                                        src="/images/NFLPlayByPlay-dark.png" 
                                         className="hidden rounded-lg border border-neutral-800 shadow-2xs dark:block" 
                                         layout="fill"
                                     />
@@ -44,13 +44,13 @@ export default function Projects() {
                                     <Image 
                                         alt="Personal Site"
                                         className="relative aspect-video size-full rounded-lg shadow-2xs dark:hidden fill cover"
-                                        src="/images/Portfolio.png"
+                                        src="/images/Portfolio-light.png"
                                         fill={true}
                                     />
                                     <Image 
                                         alt="Personal Site"
                                         className="hidden aspect-video size-full rounded-lg border border-neutral-800 shadow-2xs dark:block"
-                                        src="/images/Portfolio.png"
+                                        src="/images/Portfolio-dark.png"
                                         fill={true}
                                     />
                                 </div>
