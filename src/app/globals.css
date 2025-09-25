@@ -1,78 +1,95 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 :root {
-  --background: hsl(0 0% 98%);
-  --foreground: hsl(0 0% 4%);
-  --aura-rainbow-offset: -20%;
-  --aura-animation-duration: 12s;
-  --spacing: 0.25rem;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --border-color: hsl(0 0% 14.9%);
+    --background: hsl(0 0% 98%);
+    --foreground: hsl(0 0% 4%);
+    --aura-rainbow-offset: -20%;
+    --aura-animation-duration: 12s;
+    --spacing: 0.25rem;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --border-color: hsl(0 0% 14.9%);
+    --color-muted-foreground: hsl(0 0% 63.9%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --background: hsl(0 0% 4%);
-    --foreground: #ededed;
-    --border-color: hsl(0 0% 89.8%);
-  }
+    :root:not(.light) {
+        --background: hsl(0 0% 4%);
+        --foreground: #ededed;
+        --border-color: hsl(0 0% 89.8%);
+    }
 }
 
-
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --border-color: hsl(0 0% 89.8%);
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --border-color: hsl(0 0% 89.8%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+    background: var(--background);
+    color: var(--foreground);
 }
 
 .perspective {
-  perspective: 1000px;
+    perspective: 1000px;
 }
 
 .transform-style-preserve-3d {
-  transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .backface-hidden {
-  backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .rotate-y-180 {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
-/* Animated underline from left to right */
 .link-underline {
-  position: relative;
-  text-decoration: none;
+    position: relative;
+    text-decoration: none;
 }
 .link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 2px;
-  width: 100%;
-  background: currentColor;
-  transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 250ms ease;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 250ms ease;
 }
 .link-underline:hover::after,
 .link-underline:focus::after {
-  transform: scaleX(1);
+    transform: scaleX(1);
 }
 
+.to-muted-foreground\/15 {
+    --tw-gradient-to: color-mix(
+        in oklab,
+        var(--color-muted-foreground) 15%,
+        transparent
+    );
+    --tw-gradient-stops: var(
+        --tw-gradient-via-stops,
+        var(--tw-gradient-position),
+        var(--tw-gradient-from) var(--tw-gradient-from-position),
+        var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+}
+
+.text-muted-foreground {
+    color: var(--color-muted-foreground);
+}

@@ -57,7 +57,7 @@ export default function Projects() {
                                 <div className="mt-1 font-medium text-lg">Personal Site</div>
                             </div>
                         </div>
-                        <div className="mt-2 line-clamp-4 text-sm">My current interactive developer portfolio</div>
+                        <div className="mt-2 line-clamp-4 text-sm">My current interactive developer portfolio.</div>
                     </a>
                 </div>
 
