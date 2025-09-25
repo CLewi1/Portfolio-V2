@@ -51,8 +51,8 @@ export default function Home() {
                     </li>
                 </ul>
                 <p className="text-muted-foreground">Last updated:&nbsp;
-                    <span className="hidden sm:inline">May 12, 2025</span>
-                    <span className="sm:hidden">05/12/2025</span>
+                    <span className="hidden sm:inline">Sep 19, 2025</span>
+                    <span className="sm:hidden">09/19/2025</span>
                 </p>
             </footer>
         </main>

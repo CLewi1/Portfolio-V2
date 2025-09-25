@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useTheme } from "@/components/ThemeProvider"; 
 
 interface ParticleProps {
@@ -12,6 +12,7 @@ interface ParticleProps {
   refresh?: boolean;
   vx?: number;
   vy?: number;
+  maxSpeed?: number;
 }
 
 interface Particle {
@@ -29,13 +30,14 @@ interface Particle {
 
 const StarCanvas = ({
   className = "absolute top-0 left-0 size-full z-[-1]",
-  quantity = 20,
+  quantity = 30,
   staticity = 50,
   ease = 50,
   size = 0.4,
   refresh = false,
   vx = 0,
   vy = 0,
+  maxSpeed = 2,
 }: ParticleProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -62,32 +64,40 @@ const StarCanvas = ({
   useEffect(() => {
     if (canvasRef.current) {
       contextRef.current = canvasRef.current.getContext("2d");
-      resizeCanvas();
+      clearAndResize();
       drawInitialParticles();
-      window.addEventListener("resize", resizeCanvas);
+      animateParticles();
+      const handleResize = () => {
+        clearAndResize();
+        drawInitialParticles();
+        animateParticles();
+      };
+      window.addEventListener("resize", handleResize);
       return () => {
-        window.removeEventListener("resize", resizeCanvas);
+        window.removeEventListener("resize", handleResize);
         if (animationFrameId.current !== null) {
           window.cancelAnimationFrame(animationFrameId.current);
         }
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme, quantity, size]);
 
   useEffect(() => {
     trackMousePosition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mouse.x, mouse.y]);
 
   useEffect(() => {
-    resizeCanvas();
-  }, [refresh]);
-
-  const resizeCanvas = () => {
     clearAndResize();
     drawInitialParticles();
-  };
+    animateParticles();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refresh]);
 
-  const trackMousePosition = () => {
+
+
+  const trackMousePosition = useCallback(() => {
     if (canvasRef.current) {
       const rect = canvasRef.current.getBoundingClientRect();
       const { w, h } = boundsRef.current;
@@ -98,9 +108,9 @@ const StarCanvas = ({
         mouseRef.current.y = y;
       }
     }
-  };
+  }, [mouse.x, mouse.y]);
 
-  const clearAndResize = () => {
+  const clearAndResize = useCallback(() => {
     if (wrapperRef.current && canvasRef.current && contextRef.current) {
       particlesRef.current.length = 0;
       boundsRef.current.w = wrapperRef.current.offsetWidth;
@@ -111,9 +121,9 @@ const StarCanvas = ({
       canvasRef.current.style.height = `${boundsRef.current.h}px`;
       contextRef.current.scale(pixelRatioRef.current, pixelRatioRef.current);
     }
-  };
+  }, []);
 
-  const generateParticle = (): Particle => {
+  const generateParticle = useCallback((): Particle => {
     const x = Math.floor(Math.random() * boundsRef.current.w);
     const y = Math.floor(Math.random() * boundsRef.current.h);
     return {
@@ -128,9 +138,9 @@ const StarCanvas = ({
       dy: (Math.random() - 0.5) * 0.1,
       magnetism: 0.1 + 4 * Math.random(),
     };
-  };
+  }, [size]);
 
-  const drawParticle = (particle: Particle, skipPush = false) => {
+  const drawParticle = useCallback((particle: Particle, skipPush = false) => {
     if (contextRef.current) {
       const { x, y, translateX, translateY, size, alpha } = particle;
 
@@ -150,28 +160,36 @@ const StarCanvas = ({
       contextRef.current.setTransform(pixelRatioRef.current, 0, 0, pixelRatioRef.current, 0, 0);
       if (!skipPush) particlesRef.current.push(particle);
     }
-  };
+  }, [theme]);
 
-  const clearCanvas = () => {
+  const clearCanvas = useCallback(() => {
     if (contextRef.current) {
       contextRef.current.clearRect(0, 0, boundsRef.current.w, boundsRef.current.h);
     }
-  };
+  }, []);
 
-  const drawInitialParticles = () => {
+  const drawInitialParticles = useCallback(() => {
     clearCanvas();
     for (let i = 0; i < quantity; i++) {
       drawParticle(generateParticle());
     }
-    animateParticles();
-  };
+  }, [quantity, clearCanvas, drawParticle, generateParticle]);
 
-  const interpolate = (value: number, min: number, max: number, newMin: number, newMax: number) => {
+  const interpolate = useCallback((value: number, min: number, max: number, newMin: number, newMax: number) => {
     const scaled = ((value - min) * (newMax - newMin)) / (max - min) + newMin;
     return scaled > 0 ? scaled : 0;
-  };
+  }, []);
 
-  const animateParticles = () => {
+  const clampSpeed = useCallback((dx: number, dy: number) => {
+    const speed = Math.sqrt(dx * dx + dy * dy);
+    if (speed > maxSpeed) {
+      const scale = maxSpeed / speed;
+      return { dx: dx * scale, dy: dy * scale };
+    }
+    return { dx, dy };
+  }, [maxSpeed]);
+
+  const animateParticles = useCallback(() => {
     clearCanvas();
     particlesRef.current.forEach((particle, index) => {
       const edgeDist = Math.min(
@@ -191,8 +209,10 @@ const StarCanvas = ({
         particle.alpha = particle.targetAlpha * alphaFactor;
       }
 
-      particle.x += particle.dx + vx;
-      particle.y += particle.dy + vy;
+      // Apply speed clamping
+      const clampedSpeed = clampSpeed(particle.dx + vx, particle.dy + vy);
+      particle.x += clampedSpeed.dx;
+      particle.y += clampedSpeed.dy;
       particle.translateX += (mouseRef.current.x / (staticity / particle.magnetism) - particle.translateX) / ease;
       particle.translateY += (mouseRef.current.y / (staticity / particle.magnetism) - particle.translateY) / ease;
 
@@ -211,7 +231,7 @@ const StarCanvas = ({
     });
 
     animationFrameId.current = window.requestAnimationFrame(animateParticles);
-  };
+  }, [clearCanvas, drawParticle, generateParticle, vx, vy, staticity, ease, clampSpeed, interpolate]);
 
   return (
     <div className={className} ref={wrapperRef} aria-hidden="true">

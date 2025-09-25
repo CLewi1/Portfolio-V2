@@ -30,6 +30,8 @@ export default function Experience() {
             
             {/* Tab Content */}
             <div className="tab-content relative overflow-hidden">
+
+                {/* Work Section */}
                 <div 
                     className={`${
                         activeTab === "work" 
@@ -54,7 +56,7 @@ export default function Experience() {
                                         </div>
                                         <div className="flex flex-1 flex-col justify-start gap-1">
                                             <time className="text-xs text-muted-foreground">
-                                                <span>May 2023 - Present</span>
+                                                <span>May 2023 - August 2025</span>
                                             </time>
                                             <h2 className="font-semibold leading-none">City of Elmhurst</h2>
                                             <p className="text-sm text-muted-foreground">IT Intern</p>
@@ -89,6 +91,7 @@ export default function Experience() {
                     </div>
                 </div>
                 
+                {/* Education Section */}
                 <div 
                     className={`${
                         activeTab === "education" 

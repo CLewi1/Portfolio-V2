@@ -64,7 +64,7 @@ src/
 
 The site is deployed on Vercel. Changes to the main branch are automatically deployed.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://your-portfolio-url.com)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://clewi.vercel.app)
 
 ## License
 
@@ -73,5 +73,5 @@ The site is deployed on Vercel. Changes to the main branch are automatically dep
 ## Contact
 
 - [GitHub](https://github.com/CLewi1)
-- [LinkedIn](https://linkedin.com/in/yourprofile)
+- [LinkedIn](https://linkedin.com/in/clewi1)
 - [Email](mailto:colin.s.lewandowski@icloud.com)
