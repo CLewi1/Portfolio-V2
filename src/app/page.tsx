@@ -15,7 +15,7 @@ export default function Home() {
     }
 
     return (
-        <main className="relative mx-auto mt-6 max-w-xl px-6">
+        <main className="relative mx-auto mt-6 max-w-xl px-6 overflow-x-hidden">
             <header className="-ml-[8px] mb-10 tracking-tight sm:mb-16">
                 <Navbar />
             </header>

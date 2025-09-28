@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
+      <body className="overflow-x-hidden">
         <ThemeProvider>
           {children}
           <StarCanvas/>
