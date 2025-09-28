@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
+import { Safari } from "@/components/ui/safari";
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -85,7 +86,7 @@ export default function ProjectsPage() {
 				{/* Projects List */}
 				<div className="my-8">
 
-					<div className="grid grid-cols-1 gap-25 mb-12">
+					<div className="my-3 flex flex-col justify-between gap-2 sm:gap-24">
 						{projects.map((project, index) => {
 							const colors = [
 								{ light: 'hover:!to-red-300/70', dark: 'dark:hover:!to-red-300/30' },
@@ -100,29 +101,31 @@ export default function ProjectsPage() {
 							const colorSet = colors[index % colors.length];
 							
 							return (
-							<div key={index}>
+							<div key={index} className="py-10 first:pt-0 last:pb-0 sm:p-0">
 								
 								{/* Image with gradient background */}
-								<div className={`group w-full overflow-hidden rounded-md bg-gradient-to-t from-transparent to-muted-foreground/15 hover:!bg-gradient-to-t hover:!from-transparent ${colorSet.light} ${colorSet.dark} shadow-2xs transition-all duration-300 px-5 pt-2.5 relative`}>
-									<div className="translate-y-4 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-										<div className="relative aspect-video w-full">
-											<Image 
-												alt={`${project.title} Image`}
-												src={project.lightImage}
-												className="rounded-md shadow-2xs dark:hidden"
-												layout="fill" 
-												objectFit="cover"
-											/>
-											<Image 
-												alt={`${project.title} Image`}
-												src={project.darkImage}
-												className="hidden rounded-md shadow-2xs dark:block"
-												layout="fill" 
-												objectFit="cover"
-											/>
-										</div>
-									</div>
-								</div>
+								{/*  			flex overflow-hidden bg-linear-to-t from-[#00000000] to-muted-foreground/15 px-5 pt-2.5 hover:to-blue-300/70 dark:hover:to-blue-300/30 group relative rounded-md */}
+								<a className={`flex overflow-hidden bg-gradient-to-t from-transparent to-muted-foreground/15 px-5 pt-2.5 hover:!bg-gradient-to-t hover:!from-transparent ${colorSet.light} ${colorSet.dark} group relative rounded-md h-[315.45px]`}>
+										<Safari
+											className="relative overflow-hidden translate-y-4 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 size-full"
+											url="clewi.dev"
+											imageSrc={project.darkImage}
+										/>
+{/* 										<Image 
+											alt={`${project.title} Image`}
+											src={project.lightImage}
+											className="shadow-2xs rounded-md dark:hidden object-top"
+											layout="fill" 
+											objectFit="cover"
+										/>
+										<Image 
+											alt={`${project.title} Image`}
+											src={project.darkImage}
+											className="hidden rounded-md shadow-2xs dark:block object-top"
+											layout="fill" 
+											objectFit="cover"
+										/> */}
+								</a>
 
 								{/* Text content */}
 								<div className="mt-2 flex flex-col gap-2">
