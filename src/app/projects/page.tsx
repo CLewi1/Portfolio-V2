@@ -102,29 +102,11 @@ export default function ProjectsPage() {
 							
 							return (
 							<div key={index} className="py-10 first:pt-0 last:pb-0 sm:p-0">
-								
-								{/* Image with gradient background */}
-								{/*  			flex overflow-hidden bg-linear-to-t from-[#00000000] to-muted-foreground/15 px-5 pt-2.5 hover:to-blue-300/70 dark:hover:to-blue-300/30 group relative rounded-md */}
 								<a className={`flex overflow-hidden bg-gradient-to-t from-transparent to-muted-foreground/15 px-5 pt-2.5 hover:!bg-gradient-to-t hover:!from-transparent ${colorSet.light} ${colorSet.dark} group relative rounded-md h-[315.45px]`}>
-										<Safari
-											className="relative overflow-hidden translate-y-4 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 size-full"
-											url="clewi.dev"
-											imageSrc={project.darkImage}
-										/>
-{/* 										<Image 
-											alt={`${project.title} Image`}
-											src={project.lightImage}
-											className="shadow-2xs rounded-md dark:hidden object-top"
-											layout="fill" 
-											objectFit="cover"
-										/>
-										<Image 
-											alt={`${project.title} Image`}
-											src={project.darkImage}
-											className="hidden rounded-md shadow-2xs dark:block object-top"
-											layout="fill" 
-											objectFit="cover"
-										/> */}
+									<Safari
+										lightImageSrc={project.lightImage}
+										darkImageSrc={project.darkImage}
+									/>
 								</a>
 
 								{/* Text content */}
