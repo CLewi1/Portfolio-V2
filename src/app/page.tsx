@@ -22,7 +22,6 @@ export default function Home() {
             <section className="h-full bg-background">
                 <div className="group relative h-48 overflow-hidden">
                     <Map lightMapUrl={lightMapUrl} darkMapUrl={darkMapUrl} />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-[linear-gradient(transparent,#9d9da200_60%,#fafafa)] dark:bg-[linear-gradient(transparent,#18181b73_60%,#0a0a0a)]"></div>
                     <Clock />
                 </div>
                 <Hero />
