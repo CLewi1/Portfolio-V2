@@ -1,21 +1,24 @@
 'use client';
 import * as maplibregl from 'maplibre-gl';
 import syncMaps from '@mapbox/mapbox-gl-sync-move';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './Map.css';
+import Image from 'next/image';
 
 interface MapProps {
     lightMapUrl: string;
     darkMapUrl: string;
 }
 
-export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
+export default function Map({ lightMapUrl, darkMapUrl}: MapProps) {
     const { theme } = useTheme();
 
     const lightMapInstance = useRef<maplibregl.Map | null>(null);
     const darkMapInstance = useRef<maplibregl.Map | null>(null);
+    const [zoomComplete, setZoomComplete] = useState(false);
+
 
     const resizeMaps = () => {
         if (lightMapInstance.current) {
@@ -152,6 +155,11 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
                         essential: true,
                         easing: (t: number) => t * (2 - t)
                     });
+                    
+                    // Call onZoomComplete when flyTo animation finishes
+                    lightMapInstance.current.once('moveend', () => {
+                        setZoomComplete(true);
+                    });
                 });
                 
                 lightMapInstance.current.addImage('pulsing-dot', pulsingDot, {pixelRatio: 2});
@@ -244,15 +252,24 @@ export default function Map({ lightMapUrl, darkMapUrl }: MapProps) {
     }, [darkMapUrl, lightMapUrl]);
 
     return (
-        <div className="absolute size-full">
-            <div
-                id="lightMap"
-                className={`absolute inset-0 transition-opacity duration-500 ${theme === 'light' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                ></div>
-            <div
-                id="darkMap"
-                className={`absolute inset-0 transition-opacity duration-500 ${theme === 'dark' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                ></div>
-        </div>
+        <>
+            <div className="absolute size-full">
+                <div
+                    id="lightMap"
+                    className={`absolute inset-0 transition-opacity duration-500 ${theme === 'light' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    ></div>
+                <div
+                    id="darkMap"
+                    className={`absolute inset-0 transition-opacity duration-500 ${theme === 'dark' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    ></div>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-[linear-gradient(transparent,#9d9da200_60%,#fafafa)] dark:bg-[linear-gradient(transparent,#18181b73_60%,#0a0a0a)]"></div>
+            <div data-hidden="false" className="transition-opacity duration-500 group-hover:pointer-events-none group-hover:opacity-0 data-[hidden=true]:opacity-0">
+                <Image width="390" height="347" alt="cloud" draggable="false" className={`absolute top-0 size-80 blur-xs transition-opacity duration-500 ${zoomComplete ? 'animate-cloud opacity-75 dark:opacity-10' : 'opacity-0'}`} src="/cloud.webp" />
+                <Image width="24" height="24" alt="plane" draggable="false" className={`-right-20 -bottom-20 absolute transition-opacity duration-500 ${zoomComplete ? 'animate-plane opacity-100 [animation-delay:2.5s]' : 'opacity-0'}`} src="/plane.webp" />
+                <Image width="24" height="24" alt="plane-shadow" draggable="false" className={`-right-20 -bottom-20 absolute transition-opacity duration-500 ${zoomComplete ? 'animate-plane-shadow opacity-100 [animation-delay:2.5s]' : 'opacity-0'}`} src="/plane-shadow.webp" />
+            </div>
+            
+        </>
     );
 }

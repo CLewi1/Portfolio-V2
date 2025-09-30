@@ -12,3 +12,42 @@
     height: 100%;
     position: absolute;
 }
+
+.animate-cloud {
+    animation: cloud 100s linear infinite;
+}
+
+@keyframes cloud {
+    0% {
+        transform: translate(300px, -80px);
+    }
+    to {
+        transform: translate(-50px, -80px);
+    }
+}
+
+.animate-plane {
+    animation: plane 30s linear infinite;
+}
+
+@keyframes plane {
+    0% {
+        transform: translate(0) rotate(-65deg);
+    }
+    to {
+        transform: translate(-700px, -300px) rotate(-65deg);
+    }
+}
+
+.animate-plane-shadow {
+    animation: plane-shadow 30s linear infinite;
+}
+
+@keyframes plane-shadow {
+    0% {
+        transform: translate(-30px, 30px) rotate(-65deg);
+    }
+    to {
+        transform: translate(-730px, -270px) rotate(-65deg);
+    }
+}

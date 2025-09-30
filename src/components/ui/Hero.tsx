@@ -44,7 +44,7 @@ export default function Hero() {
                 >
                     <div className="relative size-[70px] select-none hover:saturate-[70%]">
                         <div className="absolute inset-1">
-                            <Image className="size-full rounded-full bg-muted-foreground object-cover object-[center_20%] ring-5 ring-muted-foreground/50 ring-offset-2 ring-offset-background" alt="Profile" src="/images/pfp.png" width={70} height={70}/>
+                            <Image className="size-full rounded-full bg-muted-foreground object-cover object-[center_20%] ring-2 ring-muted-foreground/50 ring-offset-2 ring-offset-background" alt="Profile" src="/images/pfp.png" width={70} height={70}/>
                             <Image className={`z-10 absolute top-[-0.5px] left-[4px] size-[50px] transition-opacity duration-300 ${showAnimation ? 'block' : 'hidden'}`}  alt="Profile Glasses" src="/images/glasses.png" width={70} height={70}/>
                         </div>
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">

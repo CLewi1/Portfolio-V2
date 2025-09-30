@@ -18,14 +18,14 @@ export default function Projects() {
                             <div className="flex w-full flex-col">
                                 <div className="relative aspect-video w-full"> 
                                     <Image 
-                                        alt="Deck Link Image" 
-                                        src="/images/NFLPlayByPlay.png" 
+                                        alt="NFL Play-By-Play" 
+                                        src="/images/NFLPlayByPlay-light.png" 
                                         className="rounded-lg shadow-2xs dark:hidden" 
                                         layout="fill"
                                     />
                                     <Image 
-                                        alt="Deck Link Image" 
-                                        src="/images/NFLPlayByPlay.png" 
+                                        alt="NFL Play-By-Play" 
+                                        src="/images/NFLPlayByPlay-dark.png" 
                                         className="hidden rounded-lg border border-neutral-800 shadow-2xs dark:block" 
                                         layout="fill"
                                     />
@@ -37,20 +37,20 @@ export default function Projects() {
                     </a>
                 </div>
                 <div className="col-span-2 size-full cursor-pointer overflow-hidden rounded-xl border border-neutral-200 bg-background p-4 shadow-2xs transition-all duration-300 hover:bg-neutral-800/[0.03] sm:col-span-1 dark:hover:bg-neutral-800/30 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_40px_-20px_#ffffff1f_inset]">
-                    <a href="https://clewi.vercel.app" target="_blank" rel="noopener noreferrer">
+                    <a href="https://clewi.dev" target="_blank" rel="noopener noreferrer">
                         <div className="flex flex-row items-center gap-2">
                             <div className="flex w-full flex-col">
                                 <div className="relative aspect-video w-full">
                                     <Image 
                                         alt="Personal Site"
                                         className="relative aspect-video size-full rounded-lg shadow-2xs dark:hidden fill cover"
-                                        src="/images/Portfolio.png"
+                                        src="/images/Portfolio-light.png"
                                         fill={true}
                                     />
                                     <Image 
                                         alt="Personal Site"
                                         className="hidden aspect-video size-full rounded-lg border border-neutral-800 shadow-2xs dark:block"
-                                        src="/images/Portfolio.png"
+                                        src="/images/Portfolio-dark.png"
                                         fill={true}
                                     />
                                 </div>
