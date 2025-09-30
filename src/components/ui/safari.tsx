@@ -53,7 +53,7 @@ export function Safari({
         </g>
         <g className="mix-blend-luminosity">
           <text x="580" y="30" fill="#A3A3A3" fontSize="12" fontFamily="Arial, sans-serif">
-            https://duyle.dev
+            https://clewi.dev
           </text>
         </g>
         <g className="mix-blend-luminosity">
