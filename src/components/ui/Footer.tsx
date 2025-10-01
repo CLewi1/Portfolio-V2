@@ -21,8 +21,8 @@ export default function Footer() {
 					</li>
 				</ul>
 				<p className="text-muted-foreground">Last updated:&nbsp;
-					<span className="hidden sm:inline">Sep 29, 2025</span>
-					<span className="sm:hidden">09/29/2025</span>
+					<span className="hidden sm:inline">Oct 1, 2025</span>
+					<span className="sm:hidden">10/01/2025</span>
 				</p>
 			</footer>
     )
