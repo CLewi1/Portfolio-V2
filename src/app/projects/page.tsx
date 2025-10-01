@@ -37,7 +37,7 @@ export default function ProjectsPage() {
 			lightImage: "/images/Portfolio-light.png",
 			darkImage: "/images/Portfolio-dark.png",
 			githubUrl: "https://github.com/CLewi1/Portfolio-V2",
-			liveUrl: "https://clewi.vercel.app/",
+			liveUrl: "https://clewi.dev/",
 			tags: ["Next.js", "TypeScript", "TailwindCSS"],
 		},
 		{
